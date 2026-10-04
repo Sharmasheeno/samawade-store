@@ -1,0 +1,18 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="none">
+  <defs>
+    <linearGradient id="samBlue" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1d68ff" />
+      <stop offset="100%" stop-color="#2b3890" />
+    </linearGradient>
+    <linearGradient id="samOrange" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ff9900" />
+      <stop offset="100%" stop-color="#ef7c29" />
+    </linearGradient>
+  </defs>
+  <!-- Modern Shield/Gamepad Shape -->
+  <rect x="8" y="8" width="84" height="84" rx="24" fill="url(#samBlue)" />
+  <!-- Inner Dynamic Lightning & Gamepad Elements -->
+  <path d="M52 18L28 50H46L42 82L72 46H52L60 18H52Z" fill="url(#samOrange)" />
+  <circle cx="32" cy="36" r="4" fill="#ffffff" opacity="0.9" />
+  <circle cx="68" cy="64" r="4" fill="#ffffff" opacity="0.9" />
+</svg>

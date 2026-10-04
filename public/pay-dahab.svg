@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 100" width="320" height="100">
+    <g transform="translate(15, 16)">
+      <rect x="2" y="2" width="64" height="64" rx="15" fill="#D81A28"/>
+      <polygon points="34,14 42,26 54,34 42,42 34,54 26,42 14,34 26,26" fill="#FDB913"/>
+      <circle cx="34" cy="34" r="5" fill="#FFFFFF"/>
+    </g>
+    <text x="94" y="49" font-family="'Inter', system-ui, sans-serif" font-size="28" font-weight="900" fill="#D81A28" letter-spacing="-0.5">Dahabshiil</text>
+    <text x="95" y="70" font-family="'Inter', system-ui, sans-serif" font-size="11" font-weight="800" fill="#667085" letter-spacing="1.2">FAST MONEY TRANSFER</text>
+  </svg>

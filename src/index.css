@@ -1,0 +1,122 @@
+@import "tailwindcss";
+
+:root {
+  --brand-navy: #0B2D5B;
+  --brand-navy-dark: #061A3A;
+  --brand-teal: #00C2B8;
+  --brand-teal-dark: #00A9A2;
+  --brand-gold: #D4AF37;
+  --brand-gold-light: #E5C34A;
+  --white: #FFFFFF;
+  --surface: #F6F9FC;
+  --border: #E5EAF0;
+  --text-primary: #0B1930;
+  --text-secondary: #667085;
+  
+  --radius-sm: 8px;
+  --radius-button: 10px;
+  --radius-input: 12px;
+  --radius-card: 16px;
+  --radius-large-card: 20px;
+  --radius-hero: 24px;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--surface);
+    color: var(--text-primary);
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Manrope', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    color: var(--brand-navy-dark);
+    letter-spacing: -0.025em;
+  }
+}
+
+.main-container {
+  max-width: 1240px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 24px;
+  padding-right: 24px;
+}
+
+@media (max-width: 640px) {
+  .main-container {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+}
+
+/* Shadows */
+.shadow-sm {
+  box-shadow: 0 4px 14px rgba(6, 26, 58, 0.05);
+}
+
+.shadow-md {
+  box-shadow: 0 12px 35px rgba(6, 26, 58, 0.09);
+}
+
+.shadow-hover {
+  box-shadow: 0 18px 45px rgba(6, 26, 58, 0.13);
+}
+
+.shadow-subtle {
+  box-shadow: 0 2px 8px rgba(6, 26, 58, 0.04);
+}
+
+.shadow-card {
+  box-shadow: 0 4px 20px rgba(6, 26, 58, 0.06);
+}
+
+.shadow-card-hover {
+  box-shadow: 0 14px 40px rgba(6, 26, 58, 0.12);
+}
+
+.shadow-panel {
+  box-shadow: 0 16px 45px rgba(6, 26, 58, 0.18);
+}
+
+/* Subtle Floating Animations for Hero & Accents */
+@keyframes subtle-float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+@keyframes slow-rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-subtle-float {
+  animation: subtle-float 6s ease-in-out infinite;
+}
+
+.animate-subtle-float-delayed {
+  animation: subtle-float 7s ease-in-out 1.5s infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-subtle-float,
+  .animate-subtle-float-delayed {
+    animation: none !important;
+  }
+}
+
+
+
