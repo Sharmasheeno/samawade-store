@@ -160,9 +160,9 @@ export const EFootballCategory: React.FC<EFootballCategoryProps> = ({ onBack }) 
 
       {/* 2. Account Details Alert Card */}
       <div className="max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-8 relative z-30 -mt-10 mb-6">
-        <div className="bg-white rounded-[16px] shadow-card border border-[#E6EAF0] p-4 sm:p-5 flex items-center justify-between gap-4">
-          <div className="flex items-center gap-3 sm:gap-4">
-            <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-[12px] overflow-hidden shrink-0 border border-[#E6EAF0] bg-slate-50">
+        <div className="bg-white rounded-[16px] shadow-card border border-[#E6EAF0] p-3.5 sm:p-5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 sm:gap-4">
+          <div className="flex items-center gap-3 sm:gap-4 min-w-0">
+            <div className="w-11 h-11 sm:w-14 sm:h-14 rounded-[12px] overflow-hidden shrink-0 border border-[#E6EAF0] bg-slate-50">
               <img
                 src={eFootballArt}
                 alt="E-Football Coins Android"
@@ -173,12 +173,12 @@ export const EFootballCategory: React.FC<EFootballCategoryProps> = ({ onBack }) 
                 }}
               />
             </div>
-            <div className="flex flex-col">
-              <span className="text-[#061A3A] font-bold text-sm sm:text-base">
+            <div className="flex flex-col min-w-0">
+              <span className="text-[#061A3A] font-bold text-sm sm:text-base leading-snug">
                 eFootball Account Details
               </span>
               <span
-                className={`font-semibold text-xs leading-tight mt-0.5 ${
+                className={`font-semibold text-xs leading-tight mt-0.5 line-clamp-1 ${
                   detailsSaved ? "text-[#00C2B8]" : "text-[#D4AF37]"
                 }`}
               >
@@ -191,7 +191,7 @@ export const EFootballCategory: React.FC<EFootballCategoryProps> = ({ onBack }) 
 
           <button
             onClick={() => setShowDetailsModal(true)}
-            className="bg-[#061A3A] hover:bg-[#0B2D5B] text-white px-5 sm:px-7 py-2.5 rounded-[10px] font-bold text-xs sm:text-sm transition shadow-subtle whitespace-nowrap shrink-0 active:scale-95 cursor-pointer"
+            className="w-full sm:w-auto bg-[#061A3A] hover:bg-[#0B2D5B] text-white px-5 sm:px-7 py-2.5 rounded-[10px] font-bold text-xs sm:text-sm transition shadow-subtle whitespace-nowrap shrink-0 active:scale-95 cursor-pointer text-center"
           >
             {detailsSaved ? "Edit Details" : "Add Details"}
           </button>
@@ -538,28 +538,28 @@ export const EFootballCategory: React.FC<EFootballCategoryProps> = ({ onBack }) 
       </div>
 
       {/* 8. Fixed Bottom Checkout Bar */}
-      <div className="fixed bottom-0 left-0 right-0 z-50 bg-[#061A3A] border-t border-[#0B2D5B] p-3 sm:p-4 text-white shadow-2xl">
-        <div className="max-w-[1240px] mx-auto flex items-center justify-between gap-4 px-2 sm:px-4">
-          <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-[10px] bg-[#00C2B8]/15 text-[#00C2B8] flex items-center justify-center shrink-0">
-              <Zap className="w-5 h-5 fill-[#00C2B8]" />
+      <div className="fixed bottom-0 left-0 right-0 z-50 bg-[#061A3A] border-t border-[#0B2D5B] p-2.5 xs:p-3 sm:p-4 text-white shadow-2xl safe-bottom">
+        <div className="max-w-[1240px] mx-auto flex items-center justify-between gap-2.5 sm:gap-4 px-1 xs:px-2 sm:px-4">
+          <div className="flex items-center gap-2 sm:gap-3 min-w-0">
+            <div className="w-8 h-8 xs:w-10 xs:h-10 rounded-[8px] xs:rounded-[10px] bg-[#00C2B8]/15 text-[#00C2B8] flex items-center justify-center shrink-0">
+              <Zap className="w-4 h-4 xs:w-5 xs:h-5 fill-[#00C2B8]" />
             </div>
-            <div>
-              <span className="text-xs text-slate-300 font-medium block">
+            <div className="min-w-0">
+              <span className="text-[10px] xs:text-xs text-slate-300 font-medium block truncate">
                 Selected Package:
               </span>
-              <span className="text-xs sm:text-sm font-[800] text-white">
-                {selectedProduct ? `${selectedProduct.name} — ${selectedProduct.price}` : "Choose package"}
+              <span className="text-xs sm:text-sm font-[800] text-white block truncate">
+                {selectedProduct ? `${selectedProduct.name} (${selectedProduct.price})` : "Choose package"}
               </span>
             </div>
           </div>
 
           <button
             onClick={handleCheckout}
-            className="px-7 sm:px-9 py-2.5 rounded-[10px] bg-[#00C2B8] hover:bg-[#00AAA3] text-white font-bold text-xs sm:text-sm uppercase tracking-wider shadow-subtle transition active:scale-95 cursor-pointer flex items-center gap-2 whitespace-nowrap shrink-0"
+            className="px-3.5 xs:px-6 sm:px-9 py-2.5 rounded-[10px] bg-[#00C2B8] hover:bg-[#00AAA3] text-white font-bold text-[11px] xs:text-xs sm:text-sm uppercase tracking-wider shadow-subtle transition active:scale-95 cursor-pointer flex items-center gap-1.5 xs:gap-2 whitespace-nowrap shrink-0"
           >
-            <span>Proceed to Checkout</span>
-            <ArrowRight className="w-4 h-4" />
+            <span className="hidden xs:inline">Proceed to </span><span>Checkout</span>
+            <ArrowRight className="w-3.5 h-3.5 xs:w-4 xs:h-4" />
           </button>
         </div>
       </div>

@@ -21,7 +21,7 @@ export const AllGames: React.FC<AllGamesProps> = ({ onSelectGame }) => {
     <section id="games" className="w-full my-12 lg:my-16">
       {/* Section Header */}
       <Reveal direction="up">
-        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-8">
+        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-6 sm:mb-8">
           <div>
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-[800] tracking-tight">
               <span className="text-[#061A3A]">Popular </span>
@@ -33,11 +33,11 @@ export const AllGames: React.FC<AllGamesProps> = ({ onSelectGame }) => {
           </div>
 
           {/* Right Actions: Filters & View All Games */}
-          <div className="flex flex-wrap items-center gap-3">
-            <div className="flex items-center gap-1.5 bg-white p-1 rounded-[10px] border border-[#E5EAF0] shadow-subtle">
+          <div className="flex items-center justify-between sm:justify-end gap-2.5 sm:gap-3 flex-wrap sm:flex-nowrap w-full sm:w-auto">
+            <div className="flex items-center gap-1 bg-white p-1 rounded-[10px] border border-[#E5EAF0] shadow-subtle overflow-x-auto no-scrollbar">
               <button
                 onClick={() => setFilter("all")}
-                className={`px-3 py-1.5 rounded-[8px] text-xs font-bold transition-all cursor-pointer ${
+                className={`px-2.5 sm:px-3 py-1.5 rounded-[8px] text-xs font-bold transition-all cursor-pointer whitespace-nowrap ${
                   filter === "all"
                     ? "bg-[#061A3A] text-white"
                     : "text-[#667085] hover:text-[#061A3A]"
@@ -47,7 +47,7 @@ export const AllGames: React.FC<AllGamesProps> = ({ onSelectGame }) => {
               </button>
               <button
                 onClick={() => setFilter("instant")}
-                className={`px-3 py-1.5 rounded-[8px] text-xs font-bold transition-all cursor-pointer flex items-center gap-1 ${
+                className={`px-2.5 sm:px-3 py-1.5 rounded-[8px] text-xs font-bold transition-all cursor-pointer flex items-center gap-1 whitespace-nowrap ${
                   filter === "instant"
                     ? "bg-[#061A3A] text-white"
                     : "text-[#667085] hover:text-[#061A3A]"
@@ -58,7 +58,7 @@ export const AllGames: React.FC<AllGamesProps> = ({ onSelectGame }) => {
               </button>
               <button
                 onClick={() => setFilter("sports")}
-                className={`px-3 py-1.5 rounded-[8px] text-xs font-bold transition-all cursor-pointer ${
+                className={`px-2.5 sm:px-3 py-1.5 rounded-[8px] text-xs font-bold transition-all cursor-pointer whitespace-nowrap ${
                   filter === "sports"
                     ? "bg-[#061A3A] text-white"
                     : "text-[#667085] hover:text-[#061A3A]"
@@ -70,9 +70,9 @@ export const AllGames: React.FC<AllGamesProps> = ({ onSelectGame }) => {
 
             <button
               onClick={() => setFilter("all")}
-              className="inline-flex items-center gap-1.5 text-xs font-bold text-[#00C2B8] hover:text-[#00A9A2] transition-colors group cursor-pointer"
+              className="inline-flex items-center gap-1.5 text-xs font-bold text-[#00C2B8] hover:text-[#00A9A2] transition-colors group cursor-pointer whitespace-nowrap ml-auto sm:ml-0"
             >
-              <span>View All Games</span>
+              <span>View All</span>
               <ArrowRight className="w-3.5 h-3.5 transition-transform duration-200 group-hover:translate-x-1" />
             </button>
           </div>
@@ -80,15 +80,15 @@ export const AllGames: React.FC<AllGamesProps> = ({ onSelectGame }) => {
       </Reveal>
 
       {/* Grid: 6 columns matching reference */}
-      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3.5 sm:gap-4 lg:gap-5">
+      <div className="grid grid-cols-2 xs:grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3 sm:gap-4 lg:gap-5">
         {filteredGames.map((game, idx) => (
           <Reveal key={game.id} delay={Math.min(idx * 0.05, 0.4)} direction="up">
             <div
               onClick={() => onSelectGame && onSelectGame(game)}
-              className="bg-white rounded-[16px] p-3 border border-[#E5EAF0] shadow-sm hover:shadow-hover hover:-translate-y-1.5 hover:border-[#00C2B8]/40 transition-all duration-300 cursor-pointer group flex flex-col items-center text-center active:scale-98"
+              className="bg-white rounded-[14px] sm:rounded-[16px] p-2.5 sm:p-3 border border-[#E5EAF0] shadow-sm hover:shadow-hover hover:-translate-y-1.5 hover:border-[#00C2B8]/40 transition-all duration-300 cursor-pointer group flex flex-col items-center text-center active:scale-98"
             >
               {/* Rounded Game Icon Artwork matching reference */}
-              <div className="relative w-full aspect-square rounded-[14px] overflow-hidden bg-slate-100 mb-3 shadow-subtle group-hover:shadow-md transition-shadow">
+              <div className="relative w-full aspect-square rounded-[12px] sm:rounded-[14px] overflow-hidden bg-slate-100 mb-2.5 sm:mb-3 shadow-subtle group-hover:shadow-md transition-shadow">
                 <img
                   src={game.image}
                   alt={game.title}
@@ -105,7 +105,7 @@ export const AllGames: React.FC<AllGamesProps> = ({ onSelectGame }) => {
               {/* Delivery Tag Pill matching reference: light teal/gold pill */}
               <div className="w-full flex justify-center">
                 <span
-                  className={`text-[10px] font-bold px-3 py-1 rounded-[6px] flex items-center justify-center gap-1 shadow-subtle ${
+                  className={`text-[10px] font-bold px-2.5 sm:px-3 py-0.5 sm:py-1 rounded-[6px] flex items-center justify-center gap-1 shadow-subtle ${
                     game.badge.toLowerCase() === "instant"
                       ? "bg-[#E0F8F6] text-[#00A9A2] border border-[#00C2B8]/20"
                       : "bg-[#FBF5DC] text-[#D4AF37] border border-[#D4AF37]/30"

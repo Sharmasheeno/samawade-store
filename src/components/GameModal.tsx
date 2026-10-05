@@ -27,15 +27,15 @@ export const GameModal: React.FC<GameModalProps> = ({ game, onClose }) => {
 
   return (
     <div className="fixed inset-0 z-[150] bg-[#061A3A]/70 backdrop-blur-sm flex items-center justify-center p-3 sm:p-4 overflow-y-auto">
-      <div className="relative w-full max-w-2xl bg-white rounded-[20px] overflow-hidden shadow-2xl border border-[#E6EAF0] my-8 animate-in fade-in zoom-in-95 duration-200">
+      <div className="relative w-full max-w-2xl bg-white rounded-[20px] overflow-hidden shadow-2xl border border-[#E6EAF0] my-auto sm:my-8 animate-in fade-in zoom-in-95 duration-200 max-h-[90vh] flex flex-col">
         {/* Modal Header */}
-        <div className="relative bg-[#061A3A] text-white p-5 sm:p-6 flex items-center justify-between border-b border-[#0B2D5B]">
+        <div className="relative bg-[#061A3A] text-white p-4 sm:p-6 flex items-center justify-between border-b border-[#0B2D5B] shrink-0">
           <div className="flex items-center gap-3">
-            <div className="w-12 h-12 rounded-[12px] overflow-hidden bg-white/10 border border-white/10 shrink-0">
+            <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-[12px] overflow-hidden bg-white/10 border border-white/10 shrink-0">
               <img src={game.image} alt={game.title} className="w-full h-full object-cover" />
             </div>
             <div>
-              <h2 className="text-lg sm:text-xl font-[800] text-white tracking-tight">
+              <h2 className="text-base sm:text-xl font-[800] text-white tracking-tight leading-tight">
                 {game.title}
               </h2>
               <div className="flex items-center gap-2 mt-0.5">
@@ -49,16 +49,16 @@ export const GameModal: React.FC<GameModalProps> = ({ game, onClose }) => {
 
           <button
             onClick={onClose}
-            className="w-8 h-8 rounded-[8px] bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition cursor-pointer"
+            className="w-8 h-8 rounded-[8px] bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition cursor-pointer shrink-0"
           >
             <X className="w-4 h-4" />
           </button>
         </div>
 
         {/* Content Body */}
-        <div className="p-5 sm:p-6 space-y-6">
+        <div className="p-4 sm:p-6 space-y-5 sm:space-y-6 overflow-y-auto flex-1">
           {/* Account Status Card */}
-          <div className="bg-[#F7F9FC] rounded-[16px] p-4 border border-[#E6EAF0] flex items-center justify-between gap-4">
+          <div className="bg-[#F7F9FC] rounded-[14px] sm:rounded-[16px] p-3.5 sm:p-4 border border-[#E6EAF0] flex flex-col sm:flex-row sm:items-center justify-between gap-3 sm:gap-4">
             <div>
               <span className="text-xs font-bold text-[#061A3A] block">
                 Player Account
@@ -72,7 +72,7 @@ export const GameModal: React.FC<GameModalProps> = ({ game, onClose }) => {
 
             <button
               onClick={() => setShowIdModal(true)}
-              className="px-4 py-2 bg-[#061A3A] hover:bg-[#0B2D5B] text-white text-xs font-bold rounded-[8px] transition active:scale-95 cursor-pointer shrink-0"
+              className="w-full sm:w-auto px-4 py-2 bg-[#061A3A] hover:bg-[#0B2D5B] text-white text-xs font-bold rounded-[8px] transition active:scale-95 cursor-pointer shrink-0 text-center"
             >
               {playerConfirmed ? "Edit ID" : "Add Player ID"}
             </button>
@@ -85,14 +85,14 @@ export const GameModal: React.FC<GameModalProps> = ({ game, onClose }) => {
               <span>Select Package</span>
             </div>
 
-            <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
+            <div className="grid grid-cols-2 sm:grid-cols-3 gap-2.5 sm:gap-3">
               {coinPacks.map((pack, idx) => {
                 const isSelected = selectedPack === idx;
                 return (
                   <div
                     key={idx}
                     onClick={() => setSelectedPack(idx)}
-                    className={`rounded-[12px] p-3.5 border transition-all cursor-pointer flex flex-col justify-between ${
+                    className={`rounded-[12px] p-3 sm:p-3.5 border transition-all cursor-pointer flex flex-col justify-between ${
                       isSelected
                         ? "border-[#00C2B8] bg-[#F0FDFB] shadow-subtle"
                         : "border-[#E6EAF0] bg-white hover:border-[#00C2B8]/40"
@@ -116,12 +116,12 @@ export const GameModal: React.FC<GameModalProps> = ({ game, onClose }) => {
         </div>
 
         {/* Modal Footer / Checkout */}
-        <div className="p-4 sm:p-5 bg-[#F7F9FC] border-t border-[#E6EAF0] flex items-center justify-between gap-4">
+        <div className="p-3.5 sm:p-5 bg-[#F7F9FC] border-t border-[#E6EAF0] flex flex-col sm:flex-row sm:items-center justify-between gap-3 sm:gap-4 shrink-0">
           <div>
             <span className="text-[11px] font-semibold text-[#667085] block">
               Selected Total
             </span>
-            <span className="text-base font-[800] text-[#061A3A]">
+            <span className="text-sm sm:text-base font-[800] text-[#061A3A]">
               {selectedPack !== null ? coinPacks[selectedPack].coins : "None"} —{" "}
               <span className="text-[#00C2B8]">
                 {selectedPack !== null ? coinPacks[selectedPack].price : "$0.00"}
@@ -138,7 +138,7 @@ export const GameModal: React.FC<GameModalProps> = ({ game, onClose }) => {
                 onClose();
               }
             }}
-            className="px-6 py-2.5 bg-[#00C2B8] hover:bg-[#00AAA3] text-white font-bold text-xs rounded-[10px] transition active:scale-95 shadow-subtle flex items-center gap-1.5 cursor-pointer"
+            className="w-full sm:w-auto px-6 py-2.5 bg-[#00C2B8] hover:bg-[#00AAA3] text-white font-bold text-xs rounded-[10px] transition active:scale-95 shadow-subtle flex items-center justify-center gap-1.5 cursor-pointer text-center"
           >
             <span>Proceed to Checkout</span>
             <ArrowRight className="w-3.5 h-3.5" />

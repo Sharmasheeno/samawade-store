@@ -1,4 +1,4 @@
-﻿import React, { useState } from "react";
+import React, { useState } from "react";
 import { House, PhoneCall, ShoppingBag, User } from "lucide-react";
 
 interface MobileBottomNavProps {
@@ -27,7 +27,7 @@ export const MobileBottomNav: React.FC<MobileBottomNavProps> = ({
   const activeIndex = tabs.findIndex((t) => t.id === current);
 
   return (
-    <nav className="lg:hidden fixed bottom-3 left-4 right-4 max-w-sm mx-auto z-[100] transition-all">
+    <nav className="lg:hidden fixed bottom-[max(0.75rem,env(safe-area-inset-bottom))] left-3 right-3 sm:left-4 sm:right-4 max-w-sm mx-auto z-[100] transition-all">
       <div className="relative bg-white/95 backdrop-blur-md border border-[#E6EAF0] p-1.5 rounded-[16px] shadow-card flex items-center justify-between overflow-hidden">
         {/* Sliding Indicator */}
         <div
