@@ -64,10 +64,9 @@ export const Header: React.FC<HeaderProps> = ({
               e.preventDefault();
               if (onNavigateHome) onNavigateHome();
             }}
-            className="flex items-center gap-2 group cursor-pointer focus:outline-none focus:ring-2 focus:ring-[#00C2B8] rounded-[8px]"
+            className="flex items-center gap-2 group cursor-pointer focus:outline-none focus:ring-2 focus:ring-[#00C2B8] rounded-[8px] shrink-0"
           >
-            <BrandLogo height={42} className="hidden sm:inline-flex" />
-            <BrandLogo height={32} className="sm:hidden inline-flex" />
+            <BrandLogo imgClassName="h-7 sm:h-9 md:h-10 max-w-[150px] xs:max-w-[170px] sm:max-w-none" />
           </a>
 
           {/* Center: Desktop Navigation Links */}
@@ -99,7 +98,7 @@ export const Header: React.FC<HeaderProps> = ({
           </nav>
 
           {/* Right: Action Buttons */}
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-2 sm:gap-3 shrink-0">
             {/* Telegram Button (Teal) */}
             <a
               href="https://t.me/samawadestore"

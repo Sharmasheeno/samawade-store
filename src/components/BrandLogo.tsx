@@ -1,8 +1,9 @@
-﻿import React from "react";
+import React from "react";
 
 interface BrandLogoProps {
   variant?: "horizontal" | "symbol";
   className?: string;
+  imgClassName?: string;
   height?: number;
   light?: boolean;
 }
@@ -10,17 +11,20 @@ interface BrandLogoProps {
 export const BrandLogo: React.FC<BrandLogoProps> = ({
   variant = "horizontal",
   className = "",
-  height = 40,
+  imgClassName = "",
+  height,
   light = false,
 }) => {
+  const inlineStyle = height ? { height: `${height}px` } : undefined;
+
   if (variant === "symbol") {
     return (
       <div className={`inline-flex items-center justify-center shrink-0 ${className}`}>
         <img
           src="/samwade-symbol.png"
           alt="SamwadeStore"
-          className="w-auto object-contain select-none"
-          style={{ height: `${height}px` }}
+          className={`w-auto object-contain select-none ${imgClassName}`}
+          style={inlineStyle}
           loading="eager"
         />
       </div>
@@ -35,8 +39,8 @@ export const BrandLogo: React.FC<BrandLogoProps> = ({
         alt="SamwadeStore"
         className={`w-auto object-contain transition-transform ${
           light ? "brightness-0 invert drop-shadow-sm" : ""
-        }`}
-        style={{ height: `${height}px` }}
+        } ${imgClassName}`}
+        style={inlineStyle}
         loading="eager"
       />
     </div>
